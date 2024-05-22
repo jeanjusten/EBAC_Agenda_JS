@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda MyPhoneList</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css"/>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./images/logo.png" class="logo" draggable="false" alt="vários padrões de computador, telefone e tecnologia">
+            <h1>Sua agenda personalizada.</h1>
+        </header>
+        <div class="container-body">
+            <div id="alert" class="alert"></div>
+            <form id="form" class="form">
+                <input id="input-nome" type="text" required placeholder="Nome"/>
+                <input id="input-telefone" type="tel" required placeholder="Telefone">
+                <button type="submit" class="button-add">  +  </button>
+            </form>
+            <table cellspacing="0" class="table">
+                <thead>
+                    <tr>
+                        <th>NOME</th>
+                        <th>TELEFONE</th>
+                    </tr>
+                </thead>
+                <!--Placeholder para as linhas novas que serão adicionadas-->
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
