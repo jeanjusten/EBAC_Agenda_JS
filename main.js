@@ -1,54 +1,116 @@
+//////////////////////////////
+// Variáveis Globais
+//////////////////////////////
+let mensagemAlertaHtml ="";
+const alertMsg = document.getElementById("alert");
 const form = document.getElementById("form");
-const alert_msg = document.getElementById("alert");
-const alert_img = "<img src='./images/alert.png' class='alert-img' alt='Sinal de alerta'/>"
-const success_img = "<img src='./images/success.png' class='success-img' alt='Sinal de confirmação'/>"
-const lista_nomes = [];
-const lista_telefones = [];
+const alertImg = "<img src='./images/alert.png' class='alert-img' alt='Sinal de alerta'/>"
+const successImg = "<img src='./images/success.png' class='success-img' alt='Sinal de confirmação'/>"
+let listaNomes = [];
+let listaTelefones = [];
 let linhas = "";
-let mensagem_alerta_html ="";
 
-// Função que atualiza a tabela com a linha nova criada
-function atualizar_tabela(){
-    const corpo_tabela = document.querySelector("tbody");
-    corpo_tabela.innerHTML = linhas;
-}
-
-// Função que atualiza a mensagem de sucesso ou falha ao adicionar contato
-function mensagem(){
-    alert_msg.innerHTML = mensagem_alerta_html;
-}
-
-// Previne a página de atualizar ao realizar submit
-form.addEventListener("submit", function(event){
-    event.preventDefault();
-    adiciona_linha()
-    atualizar_tabela()
-    mensagem();
-});
-
-// Adicionando linhas novas na agenda
-function adiciona_linha(){
-    const input_nome = document.getElementById("input-nome");
-    const input_telefone = document.getElementById("input-telefone");
-    const mensagem_alerta = `${alert_img} O telefone "${input_telefone.value}" já existe em sua agenda!`
-    const mensagem_sucesso = `${success_img} O telefone "${input_telefone.value}" foi adicionado com sucesso!`
-
-// Garantindo que os telefones não serão repetidos
-    if (lista_telefones.includes(input_telefone.value)) {
-        mensagem_alerta_html = mensagem_alerta;
-    } else { // E então, adiciono o nome e telefone às suas listas
-        lista_nomes.push(input_nome.value);
-        lista_telefones.push(input_telefone.value);
-// Criando uma linha nova na agenda
-        let linha = "<tr>";
-        linha += `<td> ${input_nome.value}</td>`;
-        linha += `<td> ${input_telefone.value}</td>`;
-        linha += "</tr>";
-        linhas += linha;
-        mensagem_alerta_html = mensagem_sucesso
+//////////////////////////////
+// JQuery
+//////////////////////////////
+$(document).ready(function(){
+    // Função que atualiza a tabela com a linha nova criada
+    function atualizarTabela(conteudoHtml){
+        const corpoTabela = document.querySelector("tbody");
+        corpoTabela.innerHTML += conteudoHtml
     }
-// Zerando os valores dos campos após o submit
-    input_nome.value = "";
-    input_telefone.value = "";
+
+    // Função que atualiza a mensagem de sucesso ou falha ao adicionar contato
+    function mensagemAlerta(){
+        alertMsg.innerHTML = mensagemAlertaHtml;
+    }
+
+    // Previne a página de atualizar ao realizar submit
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
+        adicionarLinha()
+        mensagemAlerta();
+    });
+
+    // Adicionando linhas novas na agenda
+    function adicionarLinha(){
+        const inputNome = document.getElementById("input-nome");
+        const inputTelefone = document.getElementById("input-telefone");
+        const mensagemAlerta = `${alertImg} O telefone "${inputTelefone.value}" já existe em sua agenda!`
+        const mensagemAlertaNome = `${alertImg} Por favor, insira um nome válido.`
+        const mensagemAlertaNumero = `${alertImg} Por favor, insira um telefone válido.`
+        const mensagemSucesso = `${successImg} O telefone "${inputTelefone.value}" foi adicionado com sucesso!`
+
+    // Garantindo que os telefones não serão repetidos
+        if (listaTelefones.includes(inputTelefone.value)) {
+            mensagemAlertaHtml = mensagemAlerta;
+        } else if ((inputTelefone.value).length != 15) { // Garantindo que o telefone está completo
+            mensagemAlertaHtml = mensagemAlertaNumero;
+        } else if ((inputNome.value).trim() == "") { // Garantindo que o nome não está vazio
+            mensagemAlertaHtml = mensagemAlertaNome;
+        } else { // Adicionando o número na lista
+            listaNomes.push((inputNome.value).trim());
+            listaTelefones.push(inputTelefone.value);
+
+    // Criando uma linha nova na agenda
+            let linha = `<tr id=${(listaNomes.length)}>`;
+            let newId = listaNomes.length
+            let iconeAjustes = `<button type='button' id='${newId}' class='button-remove' onclick='removeRow(${newId})'><img src='./images/alert.png' class='img-options' draggable='false' alt='Ícone de ajustes'></button>`
+
+            linha += `<td> ${inputNome.value}</td>`;
+            linha += `<td> ${inputTelefone.value}</td>`;
+            linha += `<td> ${iconeAjustes}</td>`;
+            linha += "</tr>";
+            //linhas += linha;
+            atualizarTabela(linha)
+            mensagemAlertaHtml = mensagemSucesso
+            // Zerando os valores dos campos após o submit
+            inputNome.value = "";
+            inputTelefone.value = "";
+        }
+    }
+
+    // Máscara de validação JQuery
+    $("#input-telefone").mask("(00) 00000-0000", {
+        placeholder: "(00) 00000-0000"
+    })
+})
+
+//////////////////////////////
+// Funções Globais
+//////////////////////////////
+
+// Remover Contato
+function removeRow(rowId) {
+    const mensagemContatoRemovido = `${alertImg} O contato foi removido da sua lista.`
+    const linhaContato = document.getElementById(rowId)
+    let indexId = parseInt(rowId - 1)
+
+    $( function() {
+        $("#caixa-dialogo").dialog({
+            resizable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            buttons: {
+
+            "Excluir": function() {
+                if (rowId > -1) { 
+                listaNomes.splice(indexId, 1);
+                }
+
+                if (rowId > -1) { 
+                listaTelefones.splice(indexId, 1);
+                }
+
+                linhaContato.remove();
+                alertMsg.innerHTML = mensagemContatoRemovido;
+                $(this).dialog("close");
+            },
+            Cancelar: function() {
+                $(this).dialog("close");
+            }}
+        });
+    });
 }
 

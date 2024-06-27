@@ -10,45 +10,64 @@ body{
     background-repeat: no-repeat;
 }
 
+/*==================================*/
+/* HEADER */
+/*==================================*/
 header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
+    justify-content: center;
+    text-align: center;
+    max-width: 1920px;
+    margin-top: 80px;
 }
 
-h1 {
+.logo{
+    max-height: 200px;
+}
+
+header h1 {
+    font-size: 2rem;
     color: #f58634;
     font-family: "Poetsen One", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
+/*==================================*/
+/* CONTAINERS */
+/*==================================*/
 .container{
-    margin-top: 120px;
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    max-width: 1920px;
+    padding: 15px;
 }
 
-.logo{
-    max-height: 200px;
-    display: flex;
+table {
+    width: 65%;
+}
+
+/*==================================*/
+/* ALERT */
+/*==================================*/
+.container span {
+    vertical-align: center;
     align-items: center;
-    align-self: center;
+    padding-right: 15px;
 }
 
 .alert{
+    gap: 5px;
     display: flex;
     flex-direction: row;
-    gap: 25px;
     margin-top: 25px;
     max-height: 60px;
+    max-width: 85%;
     color:white;
     background-color: #f58634;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 23px;
+    font-size: 1.5rem;
     font-weight: bold;
     border-radius: 5px;
     vertical-align: center;
@@ -57,11 +76,14 @@ h1 {
 
 .alert-img, .success-img{
     max-height: 20px;
-    margin: 5px 5px;
+    margin: 10px 10px;
 }
 
+/*==================================*/
+/* FORM */
+/*==================================*/
 .form {
-    margin-top: 50px;;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -77,7 +99,8 @@ h1 {
 }
 
 .form button{
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: bold;
     height: 50px;
     width: 120px;
     color: white;
@@ -90,18 +113,20 @@ h1 {
 .form button:hover{
     background-color: orangered;
     color: white;
-    font-size: 21px;
-    font-weight: bold;
-    transform: scale(1.05);
 }
 
+/*==================================*/
+/* TABLE */
+/*==================================*/
 .table{
     font-family: "Poetsen One", sans-serif;
     font-weight: bold;
     color:#f58634;
+    gap: 15px;
 }
 
 table th{
+    justify-content: space-around;
     border-bottom: 3px solid rgba(245,134,52, 1);
     padding: 16px;
     font-size: 18px;
@@ -109,15 +134,80 @@ table th{
 }
 
 table td{
-    text-align: center;
     font-size: 18px;
-    padding: 18px 0;
+    padding: 18px;
     border-bottom: 2px solid rgba(255,255,255,0.5);
 }
 
-.container-body{
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-    vertical-align: center;
+tbody td{
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.button-remove {
+    background-color: #f58634;
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.button-remove:hover {
+    background-color: orangered;
+}
+
+.img-options {
+    max-height: 18px;
+}
+
+/*==================================*/
+/* RESPONSIVENESS */
+/*==================================*/
+
+@media screen and (max-width: 767px) {
+    .alert{
+        max-height: 40px;
+        max-width: 85%;
+        font-size: 1rem;
+    }
+
+    .form {
+        gap: 8px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        vertical-align: center;
+    }
+
+    .logo{
+        max-height: 180px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .logo{
+        max-height: 150px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/*==================================*/
+/* Jquery UI */
+/*==================================*/
+#caixa-dialogo {
+    display: none;
+}
+
+.ui-icon, .ui-icon-alert {
+    float:left; 
+    margin:12px 12px 20px 0;
 }

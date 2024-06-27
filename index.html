@@ -7,33 +7,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
     <link rel="stylesheet" href="./main.css"/>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="./images/logo.png" class="logo" draggable="false" alt="vários padrões de computador, telefone e tecnologia">
-            <h1>Sua agenda personalizada.</h1>
-        </header>
-        <div class="container-body">
-            <div id="alert" class="alert"></div>
-            <form id="form" class="form">
-                <input id="input-nome" type="text" required placeholder="Nome"/>
-                <input id="input-telefone" type="tel" required placeholder="Telefone">
-                <button type="submit" class="button-add">Cadastrar</button>
-            </form>
-            <table cellspacing="0" class="table">
-                <thead>
-                    <tr>
-                        <th>NOME</th>
-                        <th>TELEFONE</th>
-                    </tr>
-                </thead>
-                <!--Placeholder para as linhas novas que serão adicionadas-->
-                <tbody></tbody>
-            </table>
-        </div>
+    <div id="caixa-dialogo" title="Remover número da lista?">
+        <p>
+        <span class="ui-icon ui-icon-alert"></span>
+        Tem certeza que deseja remover este número da sua lista? Esta ação não pode ser desfeita.</p>
     </div>
+    <header>
+        <img src="./images/logo.png" class="logo" draggable="false" alt="Logotipo do MyPhoneList">
+        <h1>Sua agenda personalizada.</h1>
+    </header>
+
+    <div class="container">
+        <span id="alert" class="alert"></span>
+        <form id="form" class="form">
+            <input for="nome" id="input-nome" type="text" required placeholder="Nome"/>
+            <input for="telefone" id="input-telefone" type="tel" required>
+            <button type="submit" class="button-add">CADASTRAR</button>
+        </form>
+    </div>
+    <div class="container table">
+        <table cellspacing="0" class="table">
+            <thead>
+                <tr>
+                    <th>NOME</th>
+                    <th>TELEFONE</th>
+                    <th><img src="./images/alert.png" class="options" draggable="false" alt="Ícone de ajustes"></th>
+                </tr>
+            </thead>
+            <!--Placeholder para as linhas novas que serão adicionadas-->
+            <tbody></tbody>
+        </table>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script> <!--JQuery-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
+    <script src="./js plugins/jquery.mask.min.js"></script> <!--Plugin de máscara para validar telefones/email-->
+    <script src="./js plugins/jquery.validate.min.js"></script> <!--Plugin de máscara para validar formulários-->
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script> <!--Jquery UI-->
     <script src="./main.js"></script>
 </body>
 </html>
