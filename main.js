@@ -11,12 +11,13 @@ let linhas = "";
 let newId = 0;
 
 //////////////////////////////
-// Funções Globais
 // Remover Contato e caixa de diálogo de confirmação
 function removeRow(rowId) {
     const mensagemContatoRemovido = `${alertImg} O contato foi removido da sua lista.`
     const linhaContato = document.getElementById(rowId)
-    let indexId = parseInt(rowId - 1)
+    // Pegando o index do Nome e Telefone de dentro do HTML da linha
+    const indexNome = listaNomes.indexOf((linhaContato.childNodes[0].innerHTML));
+    const indexTelefone = listaTelefones.indexOf((linhaContato.childNodes[1].innerHTML));
 
     $( function() {
         $("#caixa-dialogo").dialog({
@@ -25,18 +26,13 @@ function removeRow(rowId) {
             width: 400,
             modal: true,
             buttons: {
-
             "Excluir": function() {
-                if (rowId > -1) { 
-                delete listaNomes[indexId];
-                }
-
-                if (rowId > -1) { 
-                delete listaTelefones[indexId];
-                }
-
+                // Remover Nome e telefone das Arrays
+                delete listaNomes[indexNome];
+                delete listaTelefones[indexTelefone];
                 listaNomes = listaNomes.flat()
                 listaTelefones = listaTelefones.flat()
+                // Remover linha da lista
                 linhaContato.remove();
                 alertMsg.innerHTML = mensagemContatoRemovido;
                 $(this).dialog("close");
@@ -92,9 +88,9 @@ $(document).ready(function(){
             newId += 1;
             let linha = `<tr id=${(newId)}>`;
             let iconeAjustes = `<button type='button' id='${newId}' class='button-remove' onclick='removeRow(${newId})'><img src='./images/trashbin_icon.png' class='img-options' draggable='false' alt='Ícone de ajustes'></button>`
-            linha += `<td> ${inputNome.value}</td>`;
-            linha += `<td> ${inputTelefone.value}</td>`;
-            linha += `<td> ${iconeAjustes}</td>`;
+            linha += `<td>${inputNome.value}</td>`;
+            linha += `<td>${inputTelefone.value}</td>`;
+            linha += `<td>${iconeAjustes}</td>`;
             linha += "</tr>";
             //linhas += linha;
             atualizarTabela(linha)
