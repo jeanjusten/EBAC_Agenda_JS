@@ -1,6 +1,5 @@
 //////////////////////////////
 // Variáveis Globais
-//////////////////////////////
 let mensagemAlertaHtml ="";
 const alertMsg = document.getElementById("alert");
 const form = document.getElementById("form");
@@ -9,10 +8,47 @@ const successImg = "<img src='./images/success.png' class='success-img' alt='Sin
 let listaNomes = [];
 let listaTelefones = [];
 let linhas = "";
+let newId = 0;
 
 //////////////////////////////
-// JQuery
+// Funções Globais
+// Remover Contato e caixa de diálogo de confirmação
+function removeRow(rowId) {
+    const mensagemContatoRemovido = `${alertImg} O contato foi removido da sua lista.`
+    const linhaContato = document.getElementById(rowId)
+    let indexId = parseInt(rowId - 1)
+
+    $( function() {
+        $("#caixa-dialogo").dialog({
+            resizable: false,
+            height: "auto",
+            width: 400,
+            modal: true,
+            buttons: {
+
+            "Excluir": function() {
+                if (rowId > -1) { 
+                delete listaNomes[indexId];
+                }
+
+                if (rowId > -1) { 
+                delete listaTelefones[indexId];
+                }
+
+                listaNomes = listaNomes.flat()
+                listaTelefones = listaTelefones.flat()
+                linhaContato.remove();
+                alertMsg.innerHTML = mensagemContatoRemovido;
+                $(this).dialog("close");
+            },
+            Cancelar: function() {
+                $(this).dialog("close");
+            }}
+        });
+    });
+}
 //////////////////////////////
+// JQuery
 $(document).ready(function(){
     // Função que atualiza a tabela com a linha nova criada
     function atualizarTabela(conteudoHtml){
@@ -53,10 +89,9 @@ $(document).ready(function(){
             listaTelefones.push(inputTelefone.value);
 
     // Criando uma linha nova na agenda
-            let linha = `<tr id=${(listaNomes.length)}>`;
-            let newId = listaNomes.length
-            let iconeAjustes = `<button type='button' id='${newId}' class='button-remove' onclick='removeRow(${newId})'><img src='./images/alert.png' class='img-options' draggable='false' alt='Ícone de ajustes'></button>`
-
+            newId += 1;
+            let linha = `<tr id=${(newId)}>`;
+            let iconeAjustes = `<button type='button' id='${newId}' class='button-remove' onclick='removeRow(${newId})'><img src='./images/trashbin_icon.png' class='img-options' draggable='false' alt='Ícone de ajustes'></button>`
             linha += `<td> ${inputNome.value}</td>`;
             linha += `<td> ${inputTelefone.value}</td>`;
             linha += `<td> ${iconeAjustes}</td>`;
@@ -75,42 +110,4 @@ $(document).ready(function(){
         placeholder: "(00) 00000-0000"
     })
 })
-
-//////////////////////////////
-// Funções Globais
-//////////////////////////////
-
-// Remover Contato
-function removeRow(rowId) {
-    const mensagemContatoRemovido = `${alertImg} O contato foi removido da sua lista.`
-    const linhaContato = document.getElementById(rowId)
-    let indexId = parseInt(rowId - 1)
-
-    $( function() {
-        $("#caixa-dialogo").dialog({
-            resizable: false,
-            height: "auto",
-            width: 400,
-            modal: true,
-            buttons: {
-
-            "Excluir": function() {
-                if (rowId > -1) { 
-                listaNomes.splice(indexId, 1);
-                }
-
-                if (rowId > -1) { 
-                listaTelefones.splice(indexId, 1);
-                }
-
-                linhaContato.remove();
-                alertMsg.innerHTML = mensagemContatoRemovido;
-                $(this).dialog("close");
-            },
-            Cancelar: function() {
-                $(this).dialog("close");
-            }}
-        });
-    });
-}
 

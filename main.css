@@ -1,3 +1,5 @@
+/* RESET */
+/*==================================*/
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +12,70 @@ body{
     background-repeat: no-repeat;
 }
 
-/*==================================*/
 /* HEADER */
 /*==================================*/
-header{
+header {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    vertical-align: center;
+    margin: 12px 55px;
+    max-width: 100%;
+}
+
+.header-logo {
+    max-height: 35px;
+    width: 35px; 
+    height: 36px; 
+    background-image: url("./images/logo_nav.png"); 
+    background-size: cover;
+    transition: background-image 0.8s ease-in-out;   
+}
+
+.header-logo:hover {
+    background-image: url("./images/logo_nav_2.png");
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+}
+
+nav {
+    color: orangered;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 200;
+}
+
+header a {
+    color: #f58634;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: orangered;
+    text-decoration: underline;
+}
+
+nav button {
+    color: white;
+    font-family: "Poetsen One", sans-serif;
+    height: 35px;
+    width: 55px;
+    background-color: #f58634;
+    border: none;
+    border-radius: 5px;
+}
+
+nav button:hover {
+    background-color: orangered;
+}
+
+/* LOGO */
+/*==================================*/
+.main-logo{
     display: block;
     justify-content: center;
     text-align: center;
@@ -25,7 +87,7 @@ header{
     max-height: 200px;
 }
 
-header h1 {
+.main-logo h1 {
     font-size: 2rem;
     color: #f58634;
     font-family: "Poetsen One", sans-serif;
@@ -33,7 +95,6 @@ header h1 {
     font-style: normal;
 }
 
-/*==================================*/
 /* CONTAINERS */
 /*==================================*/
 .container{
@@ -48,7 +109,6 @@ table {
     width: 65%;
 }
 
-/*==================================*/
 /* ALERT */
 /*==================================*/
 .container span {
@@ -79,7 +139,6 @@ table {
     margin: 10px 10px;
 }
 
-/*==================================*/
 /* FORM */
 /*==================================*/
 .form {
@@ -115,7 +174,6 @@ table {
     color: white;
 }
 
-/*==================================*/
 /* TABLE */
 /*==================================*/
 .table{
@@ -157,14 +215,18 @@ tbody td{
     background-color: orangered;
 }
 
-.img-options {
-    max-height: 18px;
+.options {
+    max-height: 25px;
 }
 
-/*==================================*/
+.img-options {
+    max-height: 20px;
+    max-width: 18px;
+    padding: 0 2px;
+}
+
 /* RESPONSIVENESS */
 /*==================================*/
-
 @media screen and (max-width: 767px) {
     .alert{
         max-height: 40px;
@@ -200,7 +262,6 @@ tbody td{
     }
 }
 
-/*==================================*/
 /* Jquery UI */
 /*==================================*/
 #caixa-dialogo {

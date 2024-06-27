@@ -12,15 +12,26 @@
     <link rel="stylesheet" href="./main.css"/>
 </head>
 <body>
+    <div id="home"></div>
+    <header>
+        <nav>
+            <div class="header-logo">
+            </div>
+            <div>
+                <a href="#home" class="header-text" draggable="false" title="Ir à Home">Home</a> 
+            <button type="button">LOGIN</button>
+            </div>
+        </nav>
+    </header>
     <div id="caixa-dialogo" title="Remover número da lista?">
         <p>
         <span class="ui-icon ui-icon-alert"></span>
         Tem certeza que deseja remover este número da sua lista? Esta ação não pode ser desfeita.</p>
     </div>
-    <header>
+    <div class="main-logo">
         <img src="./images/logo.png" class="logo" draggable="false" alt="Logotipo do MyPhoneList">
         <h1>Sua agenda personalizada.</h1>
-    </header>
+    </div>
 
     <div class="container">
         <span id="alert" class="alert"></span>
@@ -36,7 +47,7 @@
                 <tr>
                     <th>NOME</th>
                     <th>TELEFONE</th>
-                    <th><img src="./images/alert.png" class="options" draggable="false" alt="Ícone de ajustes"></th>
+                    <th><img src="./images/remove_icon_opt.png" class="options" draggable="false" alt="Ícone de ajustes"></th>
                 </tr>
             </thead>
             <!--Placeholder para as linhas novas que serão adicionadas-->
