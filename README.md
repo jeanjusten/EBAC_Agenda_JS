@@ -17,15 +17,18 @@
     - [1.5.1 Mobile](#small_red_triangle_down-mobile)
     - [1.5.2 Tablet](#small_red_triangle_down-tablet)
     - [1.5.3 Desktop](#small_red_triangle_down-desktop)
-- [2. Tools and Technologies](#large_orange_diamond-tools-and-technologies) 
-  - [2.1 Stacks Used](#arrow_forward-stacks-used)
-  - [2.2 Libraries](#arrow_forward-libraries)
-  - [2.3 Plugins](#arrow_forward-plugins)
-- [3. Result](#large_orange_diamond-result)
-  - [3.1 Deploy on Vercel](#arrow_forward-deploy-on-vercel)
-- [4. Etcetera](#large_orange_diamond-etcetera)
-  - [4.1 About](#arrow_forward-about)
-  - [4.2 Licenses](#arrow_forward-licenses)
+- [2. Patch Notes](#large_orange_diamond-patch-notes)
+  - [2.1 Latest Update](#pushpin-latest-update)
+  - [2.2 Future Updates](#bookmark_tabs-future-updates)
+- [3. Tools and Technologies](#large_orange_diamond-tools-and-technologies) 
+  - [3.1 Stacks Used](#arrow_forward-stacks-used)
+  - [3.2 Libraries](#arrow_forward-libraries)
+  - [3.3 Plugins](#arrow_forward-plugins)
+- [4. Result](#large_orange_diamond-result)
+  - [4.1 Deploy on Vercel](#arrow_forward-deploy-on-vercel)
+- [5. Etcetera](#large_orange_diamond-etcetera)
+  - [5.1 About](#arrow_forward-about)
+  - [5.2 Licenses](#arrow_forward-licenses)
 
 <!--Features-->
 ## :large_orange_diamond: Features
@@ -78,6 +81,22 @@ The main breakpoints are for Desktop, Tablet and Mobile.
 #### :small_red_triangle_down: Desktop
 ![images/gifs/myphonelist_desktop.gif](https://github.com/jeanjusten/My_Phone_List/blob/main/images/gifs/myphonelist_desktop.gif?raw=true)
 <p>- Desktop Breakpoint</p>
+
+<!--Updates-->
+## :large_orange_diamond: Patch Notes
+### :pushpin: Latest Update
+<strong>27/06/2024</strong>
+- Fixed a bug where the user could not add the same number after deleting it once.
+
+### :bookmark_tabs: Future Updates
+<p>
+Here stand my planned updates for this website:
+
+- Add a Login system and saving user list info.
+- More user customization options.
+</p>
+
+####
 
 <!--Tools Used-->
 ## :large_orange_diamond: Tools and Technologies
