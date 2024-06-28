@@ -8,18 +8,18 @@
 
 <!--Menu-->
 ## :large_orange_diamond: Table of Content
-- [1. Features](#large_orange_diamond-features)
-  - [1.1 Adding Contacts](#arrow_forward-adding-contacts)
-  - [1.2 Removing Contacts](#arrow_forward-removing-contacts)
-  - [1.3 Confirmation Dialog Box](#arrow_forward-confirmation-dialog-box)
-  - [1.4 Duplicated Phone Numbers](#arrow_forward-duplicated-phone-numbers)
-  - [1.5 Responsiveness](#arrow_forward-responsiveness)
-    - [1.5.1 Mobile](#small_red_triangle_down-mobile)
-    - [1.5.2 Tablet](#small_red_triangle_down-tablet)
-    - [1.5.3 Desktop](#small_red_triangle_down-desktop)
-- [2. Patch Notes](#large_orange_diamond-patch-notes)
-  - [2.1 Latest Update](#pushpin-latest-update)
-  - [2.2 Future Updates](#bookmark_tabs-future-updates)
+- [1. Patch Notes](#large_orange_diamond-patch-notes)
+  - [1.1 Latest Update](#pushpin-latest-update)
+  - [1.2 Future Updates](#bookmark_tabs-future-updates)
+- [2. Features](#large_orange_diamond-features)
+  - [2.1 Adding Contacts](#arrow_forward-adding-contacts)
+  - [2.2 Removing Contacts](#arrow_forward-removing-contacts)
+  - [2.3 Confirmation Dialog Box](#arrow_forward-confirmation-dialog-box)
+  - [2.4 Duplicated Phone Numbers](#arrow_forward-duplicated-phone-numbers)
+  - [2.5 Responsiveness](#arrow_forward-responsiveness)
+    - [2.5.1 Mobile](#small_red_triangle_down-mobile)
+    - [2.5.2 Tablet](#small_red_triangle_down-tablet)
+    - [2.5.3 Desktop](#small_red_triangle_down-desktop)
 - [3. Tools and Technologies](#large_orange_diamond-tools-and-technologies) 
   - [3.1 Stacks Used](#arrow_forward-stacks-used)
   - [3.2 Libraries](#arrow_forward-libraries)
@@ -29,6 +29,20 @@
 - [5. Etcetera](#large_orange_diamond-etcetera)
   - [5.1 About](#arrow_forward-about)
   - [5.2 Licenses](#arrow_forward-licenses)
+
+<!--Patch Notes-->
+## :large_orange_diamond: Patch Notes
+### :pushpin: Latest Update
+<strong>27/06/2024</strong>
+- Fixed a bug where the user could not add the same number after deleting it once.
+
+### :bookmark_tabs: Future Updates
+<p>
+Here stand my planned updates for this website:
+
+- Add a Login system and saving user list info.
+- More user customization options.
+</p>
 
 <!--Features-->
 ## :large_orange_diamond: Features
@@ -81,22 +95,6 @@ The main breakpoints are for Desktop, Tablet and Mobile.
 #### :small_red_triangle_down: Desktop
 ![images/gifs/myphonelist_desktop.gif](https://github.com/jeanjusten/My_Phone_List/blob/main/images/gifs/myphonelist_desktop.gif?raw=true)
 <p>- Desktop Breakpoint</p>
-
-<!--Updates-->
-## :large_orange_diamond: Patch Notes
-### :pushpin: Latest Update
-<strong>27/06/2024</strong>
-- Fixed a bug where the user could not add the same number after deleting it once.
-
-### :bookmark_tabs: Future Updates
-<p>
-Here stand my planned updates for this website:
-
-- Add a Login system and saving user list info.
-- More user customization options.
-</p>
-
-####
 
 <!--Tools Used-->
 ## :large_orange_diamond: Tools and Technologies
