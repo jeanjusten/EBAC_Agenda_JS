@@ -254,7 +254,7 @@ tbody td{
 
 @media screen and (max-width: 500px) {
     .logo{
-        max-height: 150px;
+        max-height: 130px;
     }
 
     header h1 {
