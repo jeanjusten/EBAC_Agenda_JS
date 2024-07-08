@@ -106,7 +106,7 @@ The main breakpoints are for Desktop, Tablet and Mobile.
 
 ### :arrow_forward: Plugins
 <p>
-MyPhoneList website uses a Jquery Mask plugin to guarantee the phone number in the field is in a pre-determined format. In this case, the format is: "(00) 00000-0000".<br>
+MyPhoneList website uses a Jquery Mask plugin to guarantee that the phone number in the field is in a pre-determined format. In this case, the format is: "(00) 00000-0000".<br>
 The other plugin used is a JQuery Validation that ensures that the user can only type numbers in the phone number field.
 </p>
 
